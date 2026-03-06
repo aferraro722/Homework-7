@@ -66,6 +66,16 @@ I think that adding clarity in this way makes the graph harder to read as there 
 
 
 
+#### Plotting the Relationship Between Price and Carat with Diamond Color and Clarity Faceted
+```{r}
+ggplot(filtered_diamonds, aes(x = carat, y = price)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm") + 
+  facet_grid(color ~ clarity)
+```
+
+Most of the carat vs. price relationships are still linear, although some look like they are almost exponential. The steepest relationship is between D color and IF clarity, which makes sense because they are the best for their respective categories. ^[Question 5 Complete]
+
 
 
 
