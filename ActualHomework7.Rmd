@@ -1,0 +1,39 @@
+---
+title: "Homework 7"
+author: "Anthony Ferraro"
+output:
+  html_document:
+    code_folding: hide
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, fig.align = "center", out.width = "50%", warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(knitr)
+
+theme_set(theme_minimal())
+
+ggplot2::diamonds
+```
+
+
+#### Filtering the Diamonds Dataset
+```{r}
+filtered_diamonds <- diamonds %>%
+  filter(color %in% c("D", "G", "J")) %>%
+  filter(clarity %in% c("I1", "VS1", "IF"))
+
+knitr::kable(filtered_diamonds %>%
+               count(color, clarity) %>%
+               arrange(desc(n))
+             )
+```
+
+^[Question 1 Complete]
+
+
+
+
+
