@@ -44,5 +44,22 @@ ggplot(filtered_diamonds, aes(x = carat, y = price)) +
 There seems to be a positive relationship between carat and price, which does make sense. Also, the relationship does seem to be linear. ^[Question 2 Complete]
 
 
+#### Plotting the Relationship Between Price and Carat with Diamond Color
+```{r}
+ggplot(filtered_diamonds, aes(x = carat, y = price, color = color)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+The relationship between carat and price is still positive and linear, however, it seems that some diamond colors have steeper price increases than others. ^[Question 3 Complete]
+
+
+
+
+
+
+
+
+
 
 
