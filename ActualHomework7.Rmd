@@ -77,6 +77,26 @@ ggplot(filtered_diamonds, aes(x = carat, y = price)) +
 Most of the carat vs. price relationships are still linear, although some look like they are almost exponential. The steepest relationship is between D color and IF clarity, which makes sense because they are the best for their respective categories. ^[Question 5 Complete]
 
 
+#### Finding the Highest Price Per Carat Ratio
+```{r}
+knitr::kable(filtered_diamonds %>%
+  mutate(price_per_carat = (price / carat)) %>%
+  group_by(color, clarity) %>%
+  summarize(avg_price_pc = mean(price_per_carat)) %>%
+  arrange(desc(avg_price_pc))
+)
+  
+```
+The table does seem to agree with my plots, with the D color and IF clarity combination being the highest price per carat, and the G color and I1 clarity combination being the lowest price per carat.
+^[Question 6 Complete]
+
+
+
+
+
+
+
+
 
 
 
